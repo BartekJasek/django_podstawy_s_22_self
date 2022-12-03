@@ -5,4 +5,5 @@ from exercises_app import views
 urlpatterns = [
     path('hello/', views.hello),
     path('random/', views.random_view),
+    path('random/<int:max_number>/', views.random_view_2),
 ]

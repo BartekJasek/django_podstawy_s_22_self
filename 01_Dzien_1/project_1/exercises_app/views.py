@@ -14,3 +14,16 @@ def random_view(request):
         'random.html',
         context={'number': number}
     )
+
+
+def random_view_2(request, max_number):
+    number = random.randint(0, max_number)
+
+    return render(
+        request,
+        'random2.html',
+        context={
+            'max_number': max_number,
+            'number': number,
+        }
+    )
