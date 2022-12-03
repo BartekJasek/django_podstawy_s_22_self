@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'exercises_db',
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'postgres',
-        'PASSWORD': 'coderslab',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1'
     }
 }
