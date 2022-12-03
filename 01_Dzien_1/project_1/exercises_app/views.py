@@ -27,3 +27,17 @@ def random_view_2(request, max_number):
             'number': number,
         }
     )
+
+
+def random_view_3(request, min_number, max_number):
+    number = random.randint(min_number, max_number)
+
+    return render(
+        request,
+        'random3.html',
+        context={
+            'min_number': min_number,
+            'max_number': max_number,
+            'number': number,
+        }
+    )
