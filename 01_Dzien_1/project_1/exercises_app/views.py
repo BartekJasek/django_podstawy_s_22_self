@@ -41,3 +41,11 @@ def random_view_3(request, min_number, max_number):
             'number': number,
         }
     )
+
+
+def hello_name(request, name):
+    return render(
+        request,
+        'hello.html',
+        context={'name': name}
+    )
