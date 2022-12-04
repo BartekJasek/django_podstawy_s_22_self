@@ -38,6 +38,23 @@ class Article(models.Model):
     author = models.CharField(max_length=64, null=True)
     content = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+
     status = models.IntegerField(choices=CHOICES, default=0)
     start_publish_date = models.DateTimeField(null=True)
     end_publish_date = models.DateTimeField(null=True)
+
+
+class Album(models.Model):
+
+    CHOICES = [
+        (0, 0),
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+    ]
+
+    title = models.CharField(max_length=128)
+    year = models.IntegerField()
+    rating = models.IntegerField(choices=CHOICES)
