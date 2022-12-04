@@ -24,3 +24,20 @@ class Band(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=64)
     description = models.TextField(null=True)
+
+
+class Article(models.Model):
+
+    CHOICES = [
+        (0, 'in progress'),
+        (1, 'waiting'),
+        (2, 'published')
+    ]
+
+    title = models.CharField(max_length=128)
+    author = models.CharField(max_length=64, null=True)
+    content = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=CHOICES, default=0)
+    start_publish_date = models.DateTimeField(null=True)
+    end_publish_date = models.DateTimeField(null=True)
