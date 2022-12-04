@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'exercises_app',
     'homework_app',
     'football',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
