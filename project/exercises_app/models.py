@@ -19,3 +19,8 @@ class Band(models.Model):
     year = models.IntegerField(null=True)
     still_active = models.BooleanField(default=True)
     genre = models.IntegerField(choices=CHOICES, default=-1)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=64)
+    description = models.TextField(null=True)
