@@ -43,6 +43,9 @@ class Article(models.Model):
     start_publish_date = models.DateTimeField(null=True)
     end_publish_date = models.DateTimeField(null=True)
 
+    # zad 4
+    categories = models.ManyToManyField('Category')
+
 
 class Album(models.Model):
 
