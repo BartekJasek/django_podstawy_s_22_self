@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h3>Nazwa: {{ band.name }}</h3>
+  <h5>Rok: {{ band.year }}</h5>
+  <h5>Gatunek: {{ band.get_genre_display }}</h5>
+  <h5>Aktywny:
+      {% if band.still_active == True %}
+        Tak
+      {% else %}
+        Nie
+      {% endif %}
+  </h5>
+</body>
+</html>

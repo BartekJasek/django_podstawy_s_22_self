@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from exercises_app.models import Article
 
+from exercises_app.models import Band
 
 # Create your views here.
 def articles(request):
@@ -13,5 +14,17 @@ def articles(request):
         'articles.html',
         context={
             'article_list': article_list
+        }
+    )
+
+
+def show_band(request, band_id):
+    band = get_object_or_404(Band, id=band_id)
+
+    return render(
+        request,
+        'show_band.html',
+        context={
+            'band': band
         }
     )

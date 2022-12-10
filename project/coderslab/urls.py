@@ -18,7 +18,9 @@ from django.urls import path
 
 from exercises_app import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/', views.articles),
+    path('show-band/<int:band_id>/', views.show_band),
 ]
