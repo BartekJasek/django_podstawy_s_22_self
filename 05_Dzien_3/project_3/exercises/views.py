@@ -26,3 +26,23 @@ def one(request):
             'result': result
         }
     )
+
+
+def hello(request):
+    first_name = request.POST.get('first-name')
+    last_name = request.POST.get('last-name')
+
+    if not first_name or not last_name:
+        return render(
+            request,
+            'form.html'
+        )
+    else:
+        return render(
+            request,
+            'hello.html',
+            context={
+                'first_name': first_name,
+                'last_name': last_name
+            }
+        )
