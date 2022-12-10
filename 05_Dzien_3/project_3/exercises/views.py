@@ -46,3 +46,23 @@ def hello(request):
                 'last_name': last_name
             }
         )
+
+
+def convert(request):
+    if request.method == "GET":
+        return render(
+            request,
+            'convert.html',
+        )
+
+    elif request.method == "POST":
+        degrees = int(request.POST.get('degrees'))
+        conversion_type = request.POST.get('convertionType')
+
+        if conversion_type == 'celcToFahr':
+            result = degrees * 9/5 + 32
+            return HttpResponse(f"Wynik: {result} F")
+
+        elif conversion_type == 'FahrToCelc':
+            result = (degrees - 32) * 5/9
+            return HttpResponse(f"Wynik: {result} C")

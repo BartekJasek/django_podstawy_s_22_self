@@ -5,4 +5,5 @@ from exercises import views
 urlpatterns = [
     path('1/', views.one),
     path('forms/1/', views.hello),
+    path('forms/2/', views.convert),
 ]
