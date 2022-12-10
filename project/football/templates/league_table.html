@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, td {
+            border: solid;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+  <table>
+      {% for team in teams %}
+          <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ team.name }}</td>
+              <td>{{ team.points }}</td>
+          </tr>
+      {% endfor %}
+  </table>
+</body>
+</html>
