@@ -58,3 +58,5 @@ class Album(models.Model):
     title = models.CharField(max_length=128)
     year = models.IntegerField()
     rating = models.IntegerField(choices=CHOICES)
+    # relacje - zad 1
+    band = models.ForeignKey('Band', on_delete=models.CASCADE)
