@@ -60,3 +60,10 @@ class Album(models.Model):
     rating = models.IntegerField(choices=CHOICES)
     # relacje - zad 1
     band = models.ForeignKey('Band', on_delete=models.CASCADE)
+
+
+# relacje - zad 2
+class Song(models.Model):
+    title = models.CharField(max_length=128)
+    duration = models.TimeField(null=True)
+    album = models.ForeignKey('Album', on_delete=models.CASCADE)
