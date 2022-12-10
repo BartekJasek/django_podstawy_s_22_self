@@ -25,4 +25,5 @@ urlpatterns = [
     path('articles/', views.articles),
     path('show-band/<int:band_id>/', views.show_band),
     path('table/', football_views.league_table),
+    path('games/', football_views.games_played)
 ]
