@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      table, tr, td {
+          border: solid;
+          border-collapse: collapse;
+          padding: 8px;
+      }
+  </style>
+</head>
+<body>
+  <table>
+    {% for data in data_session %}
+      <tr>
+        <td>{{ data.0 }}</td>
+        <td>{{ data.1 }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

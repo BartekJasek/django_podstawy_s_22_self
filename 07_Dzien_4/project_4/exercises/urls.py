@@ -16,4 +16,11 @@ urlpatterns = [
     path('set-session/', views.set_session),
     path('show-session/', views.show_session),
     path('delete-session/', views.delete_session),
+
+    # Sesja - zad 2
+    path('login/', views.login_view),
+
+    # Sesja - zad 3
+    path('add-to-session/', views.add_to_session),
+    path('show-all-session/', views.show_all_session),
 ]
