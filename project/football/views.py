@@ -17,7 +17,10 @@ def league_table(request):
 
 
 def games_played(request):
-    team_id = 1
+    # team_id = 1
+    # Przekazywani inf... zad 3
+    team_id = int(request.GET.get('id'))
+
     team = get_object_or_404(Team, id=team_id)
 
     games_home = Game.objects.filter(team_home=team)
