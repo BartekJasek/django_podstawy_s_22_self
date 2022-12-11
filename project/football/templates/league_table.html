@@ -14,10 +14,16 @@
 <body>
   <table>
       {% for team in teams %}
+        {% if team.id == fav_id %}
+          <tr style="background-color: red;">
+              {% else %}
           <tr>
+        {% endif %}
               <td>{{ forloop.counter }}</td>
               {# Przekazywanie informacji ... zad 4 #}
-              <td><a href="/games?id={{ team.id }}">{{ team.name }}</a></td>
+              <td><a href="/games?id={{ team.id }}">{{ team.name }}</a>
+              <a href="/set-favourite?id={{ team.id }}"><button>Zaznacz jako ulubiony</button></a>
+              </td>
               <td>{{ team.points }}</td>
           </tr>
       {% endfor %}

@@ -4,6 +4,10 @@ from football.models import Team, Game
 
 # Create your views here.
 def league_table(request):
+    try:
+        fav_id = int(request.COOKIES.get('fav_team'))
+    except (ValueError, TypeError):
+        fav_id = None
 
     teams = Team.objects.order_by('-points')
 
@@ -12,6 +16,7 @@ def league_table(request):
         'league_table.html',
         context={
             'teams': teams,
+            'fav_id': fav_id
         }
     )
 
