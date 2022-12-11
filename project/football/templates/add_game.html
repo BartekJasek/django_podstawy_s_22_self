@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="POST">{% csrf_token %}
+      <label>Zespół gospodarzy:</label>
+      <select name="team_home">
+
+          {% for team in teams %}
+            <option value="{{ team.id }}">{{ team.name }}</option>
+          {% endfor %}
+
+      </select>
+      <input type="number" name="team_home_goals">
+
+      <label>Zespół gości:</label>
+      <select name="team_away">
+          {% for team in teams %}
+            <option value="{{ team.id }}">{{ team.name }}</option>
+          {% endfor %}
+      </select>
+      <input type="number" name="team_away_goals">
+
+      <input type="submit" value="Zapisz">
+  </form>
+</body>
+</html>

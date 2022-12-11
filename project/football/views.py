@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 
 from football.models import Team, Game
 
@@ -35,3 +35,56 @@ def games_played(request):
             'games': games
         }
     )
+
+
+# Formularze - zad 3
+def add_game(request):
+    if request.method == "GET":
+        teams = Team.objects.all()
+
+        return render(
+            request,
+            'add_game.html',
+            context={
+                'teams': teams
+            }
+        )
+
+    elif request.method == "POST":
+        try:
+            team_home_id = int(request.POST.get('team_home'))
+            team_home_goals = int(request.POST.get('team_home_goals'))
+
+            team_away_id = int(request.POST.get('team_away'))
+            team_away_goals = int(request.POST.get('team_away_goals'))
+        except ValueError:
+            return HttpResponse("Niepoprawne dane")
+
+        if team_home_id == team_away_id:
+            return HttpResponse("Zespoły nie mogą być takie same")
+
+        team_home = get_object_or_404(Team, id=team_home_id)
+        team_away = get_object_or_404(Team, id=team_away_id)
+
+        Game.objects.create(
+            team_home=team_home,
+            team_home_goals=team_home_goals,
+            team_away=team_away,
+            team_away_goals=team_away_goals
+        )
+
+        # Formularze - Zad 4
+        if team_home_goals == team_away_goals:
+            team_home.points += 1
+            team_away.points += 1
+
+            team_home.save()
+            team_away.save()
+        elif team_home_goals > team_away_goals:
+            team_home.points += 3
+            team_home.save()
+        else:
+            team_away.points += 3
+            team_away.save()
+
+        return redirect(f"/games/?id={team_home_id}")
