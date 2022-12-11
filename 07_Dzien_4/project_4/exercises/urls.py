@@ -10,6 +10,10 @@ urlpatterns = [
     path('delete-cookie/', views.delete_cookie),
 
     # Zad 2
-    path('add-to-cookie/', views.add_to_cookie)
+    path('add-to-cookie/', views.add_to_cookie),
 
+    # Sesja - Zad 1
+    path('set-session/', views.set_session),
+    path('show-session/', views.show_session),
+    path('delete-session/', views.delete_session),
 ]
