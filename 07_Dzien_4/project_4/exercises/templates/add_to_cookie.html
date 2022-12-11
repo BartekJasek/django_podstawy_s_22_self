@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form action="#" method="POST">{% csrf_token %}
+    <label>
+        Klucz:
+        <input type="text" name="key">
+    </label>
+    <label>
+        Wartość:
+        <input type="text" name="value">
+    </label>
+    <input type="submit" name="convertionType">
+</form>
+</body>
+</html>

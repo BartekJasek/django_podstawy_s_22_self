@@ -32,3 +32,23 @@ def delete_cookie(request):
     response.delete_cookie('User')
 
     return response
+
+
+def add_to_cookie(request):
+    if request.method == "GET":
+        return render(
+            request,
+            'add_to_cookie.html'
+        )
+
+    elif request.method == "POST":
+        key = request.POST.get('key')
+        value = request.POST.get('value')
+
+        if not key:
+            return HttpResponse("Brak key")
+
+        response = HttpResponse("Zapisano")
+        response.set_cookie(key, value)
+
+        return response
