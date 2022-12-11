@@ -16,7 +16,8 @@
       {% for team in teams %}
           <tr>
               <td>{{ forloop.counter }}</td>
-              <td>{{ team.name }}</td>
+              {# Przekazywanie informacji ... zad 4 #}
+              <td><a href="/games?id={{ team.id }}">{{ team.name }}</a></td>
               <td>{{ team.points }}</td>
           </tr>
       {% endfor %}
