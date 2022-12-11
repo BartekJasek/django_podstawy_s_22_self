@@ -31,5 +31,7 @@ urlpatterns = [
     # Cookies - zad 3
     path('set-favourite/', football_views.set_as_favourite),
 
+    # Widoki klasowe - zad 3
+    path('create-band/', views.BandCreateView.as_view()),
 ]
 

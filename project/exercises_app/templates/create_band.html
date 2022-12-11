@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="POST">{% csrf_token %}
+    <input type="text" name="name" placeholder="nazwa">
+    <input type="number" name="year" placeholder="rok powstania">
+    <input type="checkbox" name="still_active">
+    <select name="genre">
+      {% for value, display in Band.CHOICES %}
+        <option value="{{ value }}">{{ display }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Zapisz">
+  </form>
+</body>
+</html>
