@@ -10,7 +10,11 @@
       <select name="team_home">
 
           {% for team in teams %}
-            <option value="{{ team.id }}">{{ team.name }}</option>
+            {% if team.id == host_team %}
+                <option value="{{ team.id }}" selected>{{ team.name }}</option>
+            {% else %}
+                <option value="{{ team.id }}">{{ team.name }}</option>
+            {% endif %}
           {% endfor %}
 
       </select>

@@ -47,11 +47,14 @@ def add_game(request):
     if request.method == "GET":
         teams = Team.objects.all()
 
+        host_team = request.session.get('host')
+
         return render(
             request,
             'add_game.html',
             context={
-                'teams': teams
+                'teams': teams,
+                'host_team': host_team,
             }
         )
 
@@ -70,6 +73,8 @@ def add_game(request):
 
         team_home = get_object_or_404(Team, id=team_home_id)
         team_away = get_object_or_404(Team, id=team_away_id)
+
+        request.session['host'] = team_home_id
 
         Game.objects.create(
             team_home=team_home,
