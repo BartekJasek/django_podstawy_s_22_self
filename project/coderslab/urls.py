@@ -28,5 +28,8 @@ urlpatterns = [
     path('games/', football_views.games_played),
     path('add-game/', football_views.add_game),
     path('modify-team/', football_views.modify_team),
+    # Cookies - zad 3
+    path('set-favourite/', football_views.set_as_favourite),
+
 ]
 

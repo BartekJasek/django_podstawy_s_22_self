@@ -118,3 +118,23 @@ def modify_team(request):
         team.save()
 
         return redirect("/table/")
+
+
+def set_as_favourite(request):
+    try:
+        team_id = int(request.GET.get('id'))
+    except (ValueError, TypeError):
+        return HttpResponse("Niepoprawny format danych")
+
+    team = get_object_or_404(Team, id=team_id)
+
+    response = render(
+        request,
+        'set_as_favourite.html',
+        context={
+            'team': team,
+        }
+    )
+    response.set_cookie('fav_team', team_id)
+
+    return response
