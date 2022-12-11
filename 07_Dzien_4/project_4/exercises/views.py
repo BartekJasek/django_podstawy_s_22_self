@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 
+from django import views
 
 # Cookies - zad 1
 def set_cookie(request):
@@ -121,3 +122,53 @@ def show_all_session(request):
             'data_session': data_session
         }
     )
+
+
+def hello(request):
+    return HttpResponse("Hello, world!")
+
+
+class HelloView(views.View):
+    def get(self, request):
+        return HttpResponse("Hello, world!")
+
+
+def hi(request):
+    if request.method == "GET":
+        return render(
+            request,
+            'form.html'
+        )
+    elif request.method == "POST":
+        first_name = request.POST.get('first-name')
+        last_name = request.POST.get('last-name')
+
+        return render(
+            request,
+            'hi.html',
+            context={
+                'first_name': first_name,
+                'last_name': last_name
+            }
+        )
+
+
+class HiView(views.View):
+    def get(self, request):
+        return render(
+            request,
+            'form.html'
+        )
+
+    def post(self, request):
+        first_name = request.POST.get('first-name')
+        last_name = request.POST.get('last-name')
+
+        return render(
+            request,
+            'hi.html',
+            context={
+                'first_name': first_name,
+                'last_name': last_name
+            }
+        )

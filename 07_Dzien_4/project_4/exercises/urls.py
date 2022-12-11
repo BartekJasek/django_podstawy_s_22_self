@@ -23,4 +23,12 @@ urlpatterns = [
     # Sesja - zad 3
     path('add-to-session/', views.add_to_session),
     path('show-all-session/', views.show_all_session),
+
+    # Widoki klasowe
+    path('hello/', views.hello),
+    path('hello2/', views.HelloView.as_view()),
+
+    # Widoki klasowe - zad 1
+    path('hi/', views.hi),
+    path('hi2/', views.HiView.as_view()),
 ]
