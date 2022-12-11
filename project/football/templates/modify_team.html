@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="POST">{% csrf_token %}
+      <input type="text" value="{{ team.name }}" name="name">
+      <input type="number" value="{{ team.points }}" name="points">
+      <input type="submit" value="Zapisz">
+  </form>
+</body>
+</html>

@@ -88,3 +88,33 @@ def add_game(request):
             team_away.save()
 
         return redirect(f"/games/?id={team_home_id}")
+
+
+def modify_team(request):
+    try:
+        team_id = int(request.GET.get('id'))
+    except (ValueError, TypeError):
+        return HttpResponse("Podano niepoprawne dane")
+
+    team = get_object_or_404(Team, id=team_id)
+
+    if request.method == "GET":
+        return render(
+            request,
+            'modify_team.html',
+            context={
+                'team': team
+            }
+        )
+    elif request.method == "POST":
+        name = request.POST.get('name')
+        try:
+            points = request.POST.get('points')
+        except (ValueError, TypeError):
+            return HttpResponse("Podano niepoprawne dane")
+
+        team.name = name
+        team.points = points
+        team.save()
+
+        return redirect("/table/")

@@ -27,4 +27,6 @@ urlpatterns = [
     path('table/', football_views.league_table),
     path('games/', football_views.games_played),
     path('add-game/', football_views.add_game),
+    path('modify-team/', football_views.modify_team),
 ]
+
