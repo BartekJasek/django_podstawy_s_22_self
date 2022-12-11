@@ -153,6 +153,7 @@ def hi(request):
         )
 
 
+# Widoki klasowe - zad 1
 class HiView(views.View):
     def get(self, request):
         return render(
@@ -172,3 +173,24 @@ class HiView(views.View):
                 'last_name': last_name
             }
         )
+
+
+# Widoki klasowe - zad 2
+class ConvertView(views.View):
+    def get(self, request):
+        return render(
+            request,
+            'convert.html',
+        )
+
+    def post(self, request):
+        degrees = int(request.POST.get('degrees'))
+        conversion_type = request.POST.get('convertionType')
+
+        if conversion_type == 'celcToFahr':
+            result = degrees * 9/5 + 32
+            return HttpResponse(f"Wynik: {result} F")
+
+        elif conversion_type == 'FahrToCelc':
+            result = (degrees - 32) * 5/9
+            return HttpResponse(f"Wynik: {result} C")

@@ -31,4 +31,7 @@ urlpatterns = [
     # Widoki klasowe - zad 1
     path('hi/', views.hi),
     path('hi2/', views.HiView.as_view()),
+
+    # Widoki klasowe - zad 2
+    path('convert/', views.ConvertView.as_view())
 ]
